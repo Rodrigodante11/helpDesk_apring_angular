@@ -1,25 +1,44 @@
 package com.rodrigo.helpdesk.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
+
 
 @Getter
 @Setter
-public abstract class Pessoa {
+@Entity(name = "TB_PESSOA")
+public abstract class Pessoa implements Serializable {
 
+    private static final long serialVersionUID =1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
+
     protected String nome;
+
+    @Column(unique = true)
     protected String cpf;
+
+    @Column(unique = true)
     protected String email;
     protected String senha;
+
+    @ElementCollection(fetch = FetchType.EAGER)  // quando der um get nesse pefiels o usuario tem que vir junto
+    @CollectionTable(name = "TB_PERFIS")  // tera uma tabela no BD
     protected Set<Integer> perfils = new HashSet<>();  //Set nao permite dois valores igual / clientes iguais
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
     public Pessoa( ) {
