@@ -5,6 +5,7 @@ import com.rodrigo.helpdesk.domain.enums.Perfil;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,6 +22,7 @@ public class TecnicoDTO implements Serializable {
 
     protected Integer id;
     protected String nome;
+    @CPF
     protected String cpf;
     protected String email;
     protected String senha;
