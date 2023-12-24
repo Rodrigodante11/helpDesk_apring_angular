@@ -54,7 +54,7 @@ public abstract class Pessoa implements Serializable {
         addPerfiel(Perfil.CLIENTE);
     }
 
-    public Set<Perfil> getPerfiels(){
+    public Set<Perfil> getPerfils(){
         return perfils.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet()); // coleta tudo para o tipo Set<>
     }
 

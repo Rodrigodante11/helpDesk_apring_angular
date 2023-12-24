@@ -1,9 +1,9 @@
 package com.rodrigo.helpdesk.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -19,7 +19,8 @@ import java.util.List;
 public class Tecnico extends Pessoa implements Serializable {
     private static final long serialVersionUID =1L;
 
-    @OneToMany(mappedBy = "cliente") // em chamados ele esta sendo mapeado pelo atributo private tecnico
+    @JsonIgnore // no rest ignora esse campo pra mim/ nao precisa trazer esse campo
+    @OneToMany(mappedBy = "tecnico") // em chamados ele esta sendo mapeado pelo atributo private tecnico
     private List<Chamado> chamados = new ArrayList<>();
 
     public Tecnico() {

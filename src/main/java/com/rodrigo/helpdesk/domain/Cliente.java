@@ -1,5 +1,6 @@
 package com.rodrigo.helpdesk.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +19,8 @@ import java.util.List;
 public class Cliente extends Pessoa implements Serializable {
     private static final long serialVersionUID =1L;
 
-    @OneToMany(mappedBy = "tecnico") // em chamados ele esta sendo mapeado pelo atributo private tecnico
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente") // em chamados ele esta sendo mapeado pelo atributo private cliente
     private List<Chamado> chamados = new ArrayList<>();
 
     public Cliente(){
