@@ -1,5 +1,7 @@
 package com.rodrigo.helpdesk.controller;
 
+import com.rodrigo.helpdesk.Utils.TecnicoConverter;
+import com.rodrigo.helpdesk.domain.DTOS.TecnicoDTO;
 import com.rodrigo.helpdesk.domain.Tecnico;
 import com.rodrigo.helpdesk.services.TecnicoServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,10 @@ public class TecnicoController {
     private TecnicoServices services;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id ) {
-        Tecnico obj = services.findById(id);
-        return ResponseEntity.ok().body(obj);
+    public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id ) {
+        Tecnico tecnico = services.findById(id);
+        TecnicoDTO tecnicoDTO= TecnicoConverter.ConverterDTO(tecnico);
+        return ResponseEntity.ok().body(tecnicoDTO);
 
     }
 
