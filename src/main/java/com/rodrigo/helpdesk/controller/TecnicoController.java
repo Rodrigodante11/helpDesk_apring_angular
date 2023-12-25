@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping(value= "/tecnicos")
 public class TecnicoController {
@@ -24,6 +27,13 @@ public class TecnicoController {
         TecnicoDTO tecnicoDTO= TecnicoConverter.ConverterDTO(tecnico);
         return ResponseEntity.ok().body(tecnicoDTO);
 
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TecnicoDTO>> findAll(){
+        List<Tecnico> list= services.findAll();
+        List<TecnicoDTO> listDTO = list.stream().map(TecnicoConverter::ConverterDTO).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
     }
 
 
