@@ -1,4 +1,4 @@
-package com.rodrigo.helpdesk.domain;
+package com.rodrigo.helpdesk.domain.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
+@AllArgsConstructor
 @Entity(name = "TB_PESSOA")
 public abstract class Pessoa implements Serializable {
 
@@ -51,7 +53,6 @@ public abstract class Pessoa implements Serializable {
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
-        addPerfiel(Perfil.CLIENTE);
     }
 
     public Set<Perfil> getPerfils(){

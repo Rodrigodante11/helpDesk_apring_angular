@@ -1,11 +1,8 @@
-package com.rodrigo.helpdesk.domain;
+package com.rodrigo.helpdesk.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
@@ -14,7 +11,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @Entity(name = "TB_TECNICO")
 public class Tecnico extends Pessoa implements Serializable {
     private static final long serialVersionUID =1L;
@@ -25,11 +21,11 @@ public class Tecnico extends Pessoa implements Serializable {
 
     public Tecnico() {
         super();
-        addPerfiel(Perfil.CLIENTE);
+        addPerfiel(Perfil.TECNICO);
     }
 
     public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
         super(id, nome, cpf, email, senha);
-        addPerfiel(Perfil.CLIENTE);
+        addPerfiel(Perfil.TECNICO);
     }
 }

@@ -1,9 +1,8 @@
-package com.rodrigo.helpdesk.domain;
+package com.rodrigo.helpdesk.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rodrigo.helpdesk.domain.enums.Prioridade;
 import com.rodrigo.helpdesk.domain.enums.Status;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
