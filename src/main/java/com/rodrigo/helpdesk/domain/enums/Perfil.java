@@ -2,9 +2,9 @@ package com.rodrigo.helpdesk.domain.enums;
 
 public enum Perfil {
 
-    ADMIN(0, "ROLE_ADMIN"),
-    CLIENTE(1, "ROLE_CLIENTE"),
-    TECNICO(0, "ROLE_TECNICO");
+    ADMIN(1, "ROLE_ADMIN"),
+    CLIENTE(2, "ROLE_CLIENTE"),
+    TECNICO(3, "ROLE_TECNICO");
 
     private Integer codigo;
     private String descricao;
