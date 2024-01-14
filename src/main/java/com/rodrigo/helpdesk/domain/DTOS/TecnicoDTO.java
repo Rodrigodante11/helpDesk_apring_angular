@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -18,10 +20,13 @@ public class TecnicoDTO implements Serializable {
     private static final long serialVersionUID =1L;
 
     protected Integer id;
+    @NotNull(message = "O campo Nome é Obrigatorio ")
     protected String nome;
-    @CPF
+    @NotNull(message = "O campo Nome é Obrigatorio ")
     protected String cpf;
+    @NotNull(message = "O campo Nome é Obrigatorio ")
     protected String email;
+    @NotNull(message = "O campo Nome é Obrigatorio ")
     protected String senha;
     protected Set<Integer> perfils = new HashSet<>();  //Set nao permite dois valores igual / clientes iguais
     protected LocalDate dataCriacao = LocalDate.now();
