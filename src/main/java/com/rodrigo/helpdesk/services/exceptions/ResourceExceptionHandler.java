@@ -6,23 +6,35 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
 
 
-    @ExceptionHandler(ObjectNotFoundException.class)
+    @ExceptionHandler(ObjectNotFoundException.class)  // Excesao no qual vai ser capturada
     public ResponseEntity<StandarError> objNotFoundException
-            (ObjectNotFoundException ex, HttpServletRequest request) {
+            (ObjectNotFoundException ex, HttpServletRequest request) { // parametro do tipo ObjectNotFoundException
 
         StandarError error= new StandarError(
                 System.currentTimeMillis(),
-                HttpStatus.NOT_FOUND.value(),
-                "Object Not Found",
+                HttpStatus.NOT_FOUND.value(),  // resposta para a escessao
+                "Object Not Found",   // mensagem para excessao
                 ex.getMessage(),
                 request.getRequestURI());
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);  // retorno para a excessao
+    }
+    @ExceptionHandler(DataIntegrityViolationException.class)  // Excesao no qual vai ser capturada
+    public ResponseEntity<StandarError> dataIntegrityViolationException
+            (DataIntegrityViolationException ex, HttpServletRequest request) {  // parametro do tipo DataIntegrityViolationException
+
+        StandarError error= new StandarError(
+                System.currentTimeMillis(),
+                HttpStatus.BAD_REQUEST.value(),  // resposta para a escessao
+                "Violacao de Dados", // mensagem para excessao
+                ex.getMessage(),
+                request.getRequestURI());
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error); // retorno para a excessao
     }
 }
