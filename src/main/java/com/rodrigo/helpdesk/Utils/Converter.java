@@ -9,10 +9,6 @@ import com.rodrigo.helpdesk.domain.entity.Tecnico;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
 import com.rodrigo.helpdesk.domain.enums.Prioridade;
 import com.rodrigo.helpdesk.domain.enums.Status;
-import com.rodrigo.helpdesk.services.ChamadoService;
-import com.rodrigo.helpdesk.services.TecnicoServices;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.stream.Collectors;
 
 public class Converter {

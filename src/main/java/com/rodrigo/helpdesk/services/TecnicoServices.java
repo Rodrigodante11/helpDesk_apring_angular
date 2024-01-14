@@ -8,7 +8,6 @@ import com.rodrigo.helpdesk.services.exceptions.DataIntegrityViolationException;
 import com.rodrigo.helpdesk.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;

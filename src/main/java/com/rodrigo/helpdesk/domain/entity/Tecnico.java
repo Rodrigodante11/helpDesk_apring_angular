@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
