@@ -22,11 +22,11 @@ public class TecnicoDTO implements Serializable {
     protected Integer id;
     @NotNull(message = "O campo Nome é Obrigatorio ")
     protected String nome;
-    @NotNull(message = "O campo Nome é Obrigatorio ")
+    @NotNull(message = "O campo CPF é Obrigatorio ")
     protected String cpf;
-    @NotNull(message = "O campo Nome é Obrigatorio ")
+    @NotNull(message = "O campo EMAIL é Obrigatorio ")
     protected String email;
-    @NotNull(message = "O campo Nome é Obrigatorio ")
+    @NotNull(message = "O campo senha é Obrigatorio ")
     protected String senha;
     protected Set<Integer> perfils = new HashSet<>();  //Set nao permite dois valores igual / clientes iguais
     protected LocalDate dataCriacao = LocalDate.now();
