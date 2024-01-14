@@ -59,4 +59,14 @@ public class TecnicoServices {
         Tecnico oldTecnico = findById(id);  //verifica se existe na base de dados
         return tecnicoRepository.save(tecnico);
     }
+
+    public void delete(Integer id) {
+        Tecnico tecnico = findById(id);
+        if(!tecnico.getChamados().isEmpty()) {
+            throw new DataIntegrityViolationException("Tecnico possui ordens de servicos e nao pode ser Deletado");
+        }else {
+            tecnicoRepository.deleteById(id);
+        }
+
+    }
 }

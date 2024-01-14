@@ -6,6 +6,7 @@ import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class Tecnico extends Pessoa implements Serializable {
     private static final long serialVersionUID =1L;
 
     @JsonIgnore // no rest ignora esse campo pra mim/ nao precisa trazer esse campo
-    @OneToMany(mappedBy = "tecnico") // em chamados ele esta sendo mapeado pelo atributo private tecnico
+    @OneToMany(mappedBy = "tecnico",fetch = FetchType.EAGER) // em chamados ele esta sendo mapeado pelo atributo private tecnico
     private List<Chamado> chamados = new ArrayList<>();
 
     public Tecnico(Integer id, String nome, @CPF String cpf, String email, String senha, Set<Perfil> perfils) {
