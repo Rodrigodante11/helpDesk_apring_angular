@@ -43,8 +43,10 @@ public class Chamado implements Serializable {
     @JoinColumn(name= "cliente_id")
     private Cliente cliente;
 
+    public Chamado() {}
 
-    public Chamado() {
-
+    @PrePersist
+    public void prePersisist() {
+        setDataAbertura(LocalDate.now());
     }
 }

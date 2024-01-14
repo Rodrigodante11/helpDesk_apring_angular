@@ -23,7 +23,7 @@ public class ClienteServices {
 
     public Cliente findById(Integer id){
         Optional<Cliente> obj = clienteRepository.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto nao encontrado!"));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Cliente nao encontrado no sistema!"));
 
     }
 
