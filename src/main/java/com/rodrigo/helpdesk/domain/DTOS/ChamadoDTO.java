@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.PrePersist;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -18,7 +19,7 @@ public class ChamadoDTO implements Serializable {
 
     private Integer id;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataAbertura= LocalDate.now();
+    private LocalDate dataAbertura;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFechamento;
 
@@ -37,5 +38,10 @@ public class ChamadoDTO implements Serializable {
 
     private String nomeTecnico;
     private String nomeCliente;
+
+    @PrePersist
+    public void prePersisist() {
+        setDataAbertura(LocalDate.now());
+    }
 
 }

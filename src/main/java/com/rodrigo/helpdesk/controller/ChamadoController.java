@@ -62,4 +62,18 @@ public class ChamadoController {
         return ResponseEntity.created(uri).build();
 
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ChamadoDTO> update(@PathVariable Integer id, @Valid @RequestBody ChamadoDTO chamadoDTO){
+        Chamado chamadoAtualizado = Converter.chamado(chamadoDTO);
+        chamadoAtualizado.setCliente(clienteServices.findById(chamadoDTO.getCliente()));
+        chamadoAtualizado.setTecnico(tecnicoServices.findById(chamadoDTO.getTecnico()));
+
+        chamadoAtualizado = chamadoService.update(id, chamadoAtualizado);
+        ChamadoDTO chamadoDTOAtualizado = Converter.chamado(chamadoAtualizado);
+
+        return ResponseEntity.ok().body(chamadoDTOAtualizado);
+
+
+    }
 }

@@ -4,11 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rodrigo.helpdesk.domain.enums.Prioridade;
 import com.rodrigo.helpdesk.domain.enums.Status;
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-
 
 @Getter
 @Setter
@@ -24,6 +22,7 @@ public class Chamado implements Serializable {
     private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
+    @Column(updatable = false)
     private LocalDate dataAbertura= LocalDate.now();
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFechamento;
