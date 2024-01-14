@@ -1,13 +1,10 @@
 package com.rodrigo.helpdesk.domain.DTOS;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
