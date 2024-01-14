@@ -52,4 +52,11 @@ public class TecnicoServices {
         }
 
     }
+
+    public Tecnico update(Integer id, Tecnico tecnico) {
+        tecnico.setId(id);
+        validaPorCpfEemail(tecnico);   // valida CPF e Email
+        Tecnico oldTecnico = findById(id);  //verifica se existe na base de dados
+        return tecnicoRepository.save(tecnico);
+    }
 }

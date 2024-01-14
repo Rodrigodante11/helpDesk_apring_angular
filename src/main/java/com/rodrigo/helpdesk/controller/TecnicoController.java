@@ -14,6 +14,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @RestController
 @RequestMapping(value= "/tecnicos")
 public class TecnicoController {
@@ -49,5 +50,15 @@ public class TecnicoController {
         return ResponseEntity.created(uri).build();
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<TecnicoDTO> update(@PathVariable  Integer id,@Valid @RequestBody TecnicoDTO tecnicoDTO){
+
+        Tecnico tecnico = Converter.tecnico(tecnicoDTO);
+
+        Tecnico tecnicoUpdate = services.update(id,tecnico);
+        TecnicoDTO tecnicoDTOUpdate = Converter.tecnico(tecnicoUpdate);
+
+        return ResponseEntity.ok().body(tecnicoDTOUpdate);
+    }
 
 }
