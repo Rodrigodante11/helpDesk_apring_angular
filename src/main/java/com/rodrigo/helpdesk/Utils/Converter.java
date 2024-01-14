@@ -80,6 +80,7 @@ public class Converter {
     public static Chamado chamado(ChamadoDTO chamadoDTO){
         return Chamado.builder()
                 .id(chamadoDTO.getId())
+                .dataAbertura(chamadoDTO.getDataAbertura())
                 .dataFechamento(chamadoDTO.getDataFechamento())
                 .prioridade(Prioridade.toEnum(chamadoDTO.getPrioridade()))
                 .status(Status.toEnum(chamadoDTO.getStatus()))

@@ -33,7 +33,7 @@ public class ChamadoService {
     public Chamado update(Integer id, Chamado chamadoUpdate) {
         chamadoUpdate.setId(id);
         Chamado chamadoAntigo = findById(id);
-        chamadoAntigo.setDataAbertura(chamadoAntigo.getDataAbertura());
+        chamadoUpdate.setDataAbertura(chamadoAntigo.getDataAbertura());   // nao estava vindo a data de abertura
         return chamadoRepository.save(chamadoUpdate);
 
     }
