@@ -1,8 +1,8 @@
 package com.rodrigo.helpdesk.services;
 
-import com.rodrigo.helpdesk.domain.Chamado;
-import com.rodrigo.helpdesk.domain.Cliente;
-import com.rodrigo.helpdesk.domain.Tecnico;
+import com.rodrigo.helpdesk.domain.entity.Chamado;
+import com.rodrigo.helpdesk.domain.entity.Cliente;
+import com.rodrigo.helpdesk.domain.entity.Tecnico;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
 import com.rodrigo.helpdesk.domain.enums.Prioridade;
 import com.rodrigo.helpdesk.domain.enums.Status;
@@ -26,15 +26,15 @@ public class DBServices {
 
     public void instanciaDB(){
 
-        Tecnico tec1= new Tecnico(null,"Valdir cesar","63653230268", "valdir@email.com", "123");
-        tec1.addPerfiel(Perfil.ADMIN);
+        Tecnico tec1= new Tecnico(null,"Valdir cesar","636.532.302-68", "valdir@email.com", "123");
+        //tec1.addPerfiel(Perfil.ADMIN);
 
         Tecnico tec2 = new Tecnico(null, "Richard Stallman", "903.347.070-56", "stallman@mail.com", "123");
         Tecnico tec3 = new Tecnico(null, "Claude Elwood Shannon", "271.068.470-54", "shannon@mail.com", "123");
         Tecnico tec4 = new Tecnico(null, "Tim Berners-Lee", "162.720.120-39", "lee@mail.com", "123");
         Tecnico tec5 = new Tecnico(null, "Linus Torvalds", "778.556.170-27", "linus@mail.com", "123");
 
-        Cliente cli1 = new Cliente(null, "Linus Torvals", "80527954780","linus!gmail.com",
+        Cliente cli1 = new Cliente(null, "Linus Torvals", "805.279.547-80","linus!gmail.com",
                 "123");
         Cliente cli2 = new Cliente(null, "Marie Curie", "322.429.140-06", "curie@mail.com", "123");
         Cliente cli3 = new Cliente(null, "Charles Darwin", "792.043.830-62", "darwin@mail.com", "123");
