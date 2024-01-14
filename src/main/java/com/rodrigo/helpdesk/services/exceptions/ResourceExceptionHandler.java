@@ -14,10 +14,10 @@ public class ResourceExceptionHandler {
 
 
     @ExceptionHandler(ObjectNotFoundException.class)  // Excesao no qual vai ser capturada
-    public ResponseEntity<StandarError> objNotFoundException
+    public ResponseEntity<StandardError> objNotFoundException
             (ObjectNotFoundException ex, HttpServletRequest request) { // parametro do tipo ObjectNotFoundException
 
-        StandarError error= new StandarError(
+        StandardError error= new StandardError(
                 System.currentTimeMillis(),
                 HttpStatus.NOT_FOUND.value(),  // resposta para a escessao
                 "Object Not Found",   // mensagem para excessao
@@ -27,10 +27,10 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);  // retorno para a excessao
     }
     @ExceptionHandler(DataIntegrityViolationException.class)  // Excesao no qual vai ser capturada
-    public ResponseEntity<StandarError> dataIntegrityViolationException
+    public ResponseEntity<StandardError> dataIntegrityViolationException
             (DataIntegrityViolationException ex, HttpServletRequest request) {  // parametro do tipo DataIntegrityViolationException
 
-        StandarError error= new StandarError(
+        StandardError error= new StandardError(
                 System.currentTimeMillis(),
                 HttpStatus.BAD_REQUEST.value(),  // resposta para a escessao
                 "Violacao de Dados", // mensagem para excessao

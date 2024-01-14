@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-public class StandarError implements Serializable {
+public class StandardError implements Serializable {
 
     private static final long serialVersionUID =1L;
 
