@@ -1,16 +1,15 @@
 package com.rodrigo.helpdesk.controller;
 
-import com.rodrigo.helpdesk.Utils.TecnicoConverter;
+import com.rodrigo.helpdesk.Utils.Converter;
 import com.rodrigo.helpdesk.domain.DTOS.TecnicoDTO;
-import com.rodrigo.helpdesk.domain.Tecnico;
+import com.rodrigo.helpdesk.domain.entity.Tecnico;
 import com.rodrigo.helpdesk.services.TecnicoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +23,7 @@ public class TecnicoController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id ) {
         Tecnico tecnico = services.findById(id);
-        TecnicoDTO tecnicoDTO= TecnicoConverter.ConverterDTO(tecnico);
+        TecnicoDTO tecnicoDTO= Converter.tecnico(tecnico);
         return ResponseEntity.ok().body(tecnicoDTO);
 
     }
@@ -32,8 +31,21 @@ public class TecnicoController {
     @GetMapping
     public ResponseEntity<List<TecnicoDTO>> findAll(){
         List<Tecnico> list= services.findAll();
-        List<TecnicoDTO> listDTO = list.stream().map(TecnicoConverter::ConverterDTO).collect(Collectors.toList());
+        List<TecnicoDTO> listDTO = list.stream().map(Converter::tecnico).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDTO);
+    }
+
+    @PostMapping
+    public ResponseEntity<TecnicoDTO> create(@RequestBody TecnicoDTO tecnicoDTO){
+
+        Tecnico tecnico = Converter.tecnico(tecnicoDTO);
+        Tecnico novoTecnico= services.create(tecnico);
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(novoTecnico.getId())
+                .toUri();
+        return ResponseEntity.created(uri).build();
     }
 
 

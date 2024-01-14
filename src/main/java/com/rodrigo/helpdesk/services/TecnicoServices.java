@@ -1,10 +1,9 @@
 package com.rodrigo.helpdesk.services;
 
-import com.rodrigo.helpdesk.domain.Tecnico;
+import com.rodrigo.helpdesk.domain.entity.Tecnico;
 import com.rodrigo.helpdesk.domain.repository.TecnicoRepository;
 import com.rodrigo.helpdesk.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,5 +24,10 @@ public class TecnicoServices {
     public List<Tecnico> findAll(){
         return repository.findAll();
 
+    }
+
+    public Tecnico create(Tecnico tecnico) {
+        tecnico.setId(null);
+        return repository.save(tecnico);
     }
 }
