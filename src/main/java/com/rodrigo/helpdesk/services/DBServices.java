@@ -26,8 +26,9 @@ public class DBServices {
 
     public void instanciaDB(){
 
+        /*
         Tecnico tec1= new Tecnico(null,"Valdir cesar","636.532.302-68", "valdir@email.com", "123");
-        //tec1.addPerfiel(Perfil.ADMIN);
+
 
         Tecnico tec2 = new Tecnico(null, "Richard Stallman", "903.347.070-56", "stallman@mail.com", "123");
         Tecnico tec3 = new Tecnico(null, "Claude Elwood Shannon", "271.068.470-54", "shannon@mail.com", "123");
@@ -51,6 +52,8 @@ public class DBServices {
         tecnicoRepository.saveAll(Arrays.asList(tec1, tec2, tec3, tec4, tec5));
         clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3, cli4, cli5));
         chamadoRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
+
+        */
 
     }
 }

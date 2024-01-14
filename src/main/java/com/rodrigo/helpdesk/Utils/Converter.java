@@ -28,6 +28,7 @@ public class Converter {
                 tecnicoDTO.getNome(),
                 tecnicoDTO.getCpf(),
                 tecnicoDTO.getEmail(),
-                tecnicoDTO.getSenha());
-    }
+                tecnicoDTO.getSenha(),
+                tecnicoDTO.getPerfils());
+    };
 }
