@@ -3,9 +3,7 @@ package com.rodrigo.helpdesk.domain.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rodrigo.helpdesk.domain.enums.Prioridade;
 import com.rodrigo.helpdesk.domain.enums.Status;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +12,8 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Entity(name = "TB_CHAMADO")
 public class Chamado implements Serializable {
 
@@ -44,13 +43,8 @@ public class Chamado implements Serializable {
     @JoinColumn(name= "cliente_id")
     private Cliente cliente;
 
-    public Chamado(Integer id, Prioridade prioridade, Status status, String titulo, String observacao, Tecnico tecnico, Cliente cliente) {
-        this.id = id;
-        this.prioridade = prioridade;
-        this.status = status;
-        this.titulo = titulo;
-        this.observacao = observacao;
-        this.tecnico = tecnico;
-        this.cliente = cliente;
+
+    public Chamado() {
+
     }
 }

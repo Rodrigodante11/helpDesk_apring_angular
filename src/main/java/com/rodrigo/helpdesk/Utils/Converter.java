@@ -1,7 +1,9 @@
 package com.rodrigo.helpdesk.Utils;
 
+import com.rodrigo.helpdesk.domain.DTOS.ChamadoDTO;
 import com.rodrigo.helpdesk.domain.DTOS.ClienteDTO;
 import com.rodrigo.helpdesk.domain.DTOS.TecnicoDTO;
+import com.rodrigo.helpdesk.domain.entity.Chamado;
 import com.rodrigo.helpdesk.domain.entity.Cliente;
 import com.rodrigo.helpdesk.domain.entity.Tecnico;
 import com.rodrigo.helpdesk.domain.enums.Perfil;
@@ -39,6 +41,8 @@ public class Converter {
                 .build();
     }
 
+
+
     public static Tecnico tecnico(TecnicoDTO tecnicoDTO) {
         return new Tecnico(tecnicoDTO.getId(),
                 tecnicoDTO.getNome(),
@@ -56,4 +60,20 @@ public class Converter {
                 clienteDTO.getSenha(),
                 clienteDTO.getPerfils());
     };
+
+    public static ChamadoDTO chamado(Chamado chamado){
+        return ChamadoDTO.builder()
+                .id(chamado.getId())
+                .dataAbertura(chamado.getDataAbertura())
+                .dataFechamento(chamado.getDataFechamento())
+                .prioridade(chamado.getPrioridade().getCodigo())
+                .status(chamado.getStatus().getCodigo())
+                .titulo(chamado.getTitulo())
+                .observacao(chamado.getObservacao())
+                .tecnico(chamado.getTecnico().getId())
+                .cliente(chamado.getCliente().getId())
+                .nomeCliente(chamado.getCliente().getNome())
+                .nomeTecnico(chamado.getTecnico().getNome())
+                .build();
+    }
 }
