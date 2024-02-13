@@ -6,6 +6,7 @@ import com.rodrigo.helpdesk.domain.entity.Tecnico;
 import com.rodrigo.helpdesk.services.TecnicoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -37,6 +38,7 @@ public class TecnicoController {
         return ResponseEntity.ok().body(listDTO);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")  // so adimistrador pode acessar o create
     @PostMapping
     public ResponseEntity<TecnicoDTO> create(@Valid @RequestBody TecnicoDTO tecnicoDTO){
 
@@ -49,7 +51,7 @@ public class TecnicoController {
                 .toUri();
         return ResponseEntity.created(uri).build();
     }
-
+    @PreAuthorize("hasAnyRole('ADMIN')")  // so adimistrador pode acessar o create
     @PutMapping(value = "/{id}")
     public ResponseEntity<TecnicoDTO> update(@PathVariable  Integer id,@Valid @RequestBody TecnicoDTO tecnicoDTO){
 
@@ -61,6 +63,7 @@ public class TecnicoController {
         return ResponseEntity.ok().body(tecnicoDTOUpdate);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')") // so adimistrador pode acessar o create
     @DeleteMapping(value =  "/{id}")
     public ResponseEntity<TecnicoDTO> delete(@PathVariable  Integer id){
         services.delete(id);
