@@ -44,6 +44,17 @@ public class Chamado implements Serializable {
 
     public Chamado() {}
 
+    public Chamado(Integer id, Prioridade prioridade, Status status, String titulo, String observacao,
+                   Tecnico tecnico, Cliente cliente) {
+        this.id = id;
+        this.prioridade = prioridade;
+        this.status = status;
+        this.titulo = titulo;
+        this.observacao = observacao;
+        this.tecnico = tecnico;
+        this.cliente = cliente;
+    }
+
     @PrePersist
     public void prePersisist() {
         setDataAbertura(LocalDate.now());

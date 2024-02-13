@@ -7,6 +7,7 @@ import com.rodrigo.helpdesk.domain.repository.ClienteRepository;
 import com.rodrigo.helpdesk.services.exceptions.DataIntegrityViolationException;
 import com.rodrigo.helpdesk.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,8 @@ public class ClienteServices {
     private ClienteRepository clienteRepository;
     @Autowired
     private PessoaRepository pessoaRepository;
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     public Cliente findById(Integer id){
         Optional<Cliente> obj = clienteRepository.findById(id);
@@ -33,6 +36,7 @@ public class ClienteServices {
 
     public Cliente create(Cliente cliente) {
         cliente.setId(null);
+        cliente.setSenha(encoder.encode(cliente.getSenha()));
         validaPorCpfEemail(cliente);
         return clienteRepository.save(cliente);
     }
