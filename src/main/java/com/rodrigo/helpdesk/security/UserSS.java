@@ -1,4 +1,4 @@
-package com.rodrigo.helpdesk.secutity;
+package com.rodrigo.helpdesk.security;
 
 import com.rodrigo.helpdesk.domain.enums.Perfil;
 import org.springframework.security.core.GrantedAuthority;

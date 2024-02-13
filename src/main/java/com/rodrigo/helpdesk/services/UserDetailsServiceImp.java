@@ -2,7 +2,7 @@ package com.rodrigo.helpdesk.services;
 
 import com.rodrigo.helpdesk.domain.entity.Pessoa;
 import com.rodrigo.helpdesk.domain.repository.PessoaRepository;
-import com.rodrigo.helpdesk.secutity.UserSS;
+import com.rodrigo.helpdesk.security.UserSS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
