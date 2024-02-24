@@ -1,4 +1,4 @@
-name: HelpDesk_spring
+name: HelpDesk Spring CI
 
 on:
  push:
@@ -16,7 +16,5 @@ jobs:
       with:
         java-version: 11
     
-    - name: Set JWT expiration environment variable
-      run: echo "jwt.expiration=604800000" >> $GITHUB_ENV
     - name: Build project with Maven
       run: mvn -B package --file pom.xml
