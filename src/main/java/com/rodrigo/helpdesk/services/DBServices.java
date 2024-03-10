@@ -32,7 +32,7 @@ public class DBServices {
 
 
         Tecnico tec1= new Tecnico(null,"Valdir cesar","636.532.302-68", "valdir@email.com",
-                encoder.encode("123"), Collections.singleton(Perfil.TECNICO));
+                encoder.encode("123"), Collections.singleton(Perfil.ADMIN));
 
 
         Tecnico tec2 = new Tecnico(null, "Richard Stallman", "903.347.070-56", "stallman@mail.com",
