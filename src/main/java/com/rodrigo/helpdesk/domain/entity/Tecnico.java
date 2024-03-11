@@ -25,8 +25,7 @@ public class Tecnico extends Pessoa implements Serializable {
 
     public Tecnico(Integer id, String nome, @CPF String cpf, String email, String senha, Set<Perfil> perfils) {
         super(id, nome, cpf, email, senha);
-        this.perfils = perfils.stream().map(Perfil::getCodigo).collect(Collectors.toSet());
-        this.perfils.add(3);
+        this.perfils.addAll(perfils.stream().map(Perfil::getCodigo).collect(Collectors.toSet()));
 
     }
     public Tecnico() {}
