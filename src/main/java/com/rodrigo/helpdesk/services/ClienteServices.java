@@ -60,6 +60,11 @@ public class ClienteServices {
         cliente.setId(id);
         validaPorCpfEemail(cliente);   // valida CPF e Email
         Cliente oldCliente = findById(id);  //verifica se existe na base de dados
+
+        if(!cliente.getSenha().equals(oldCliente.getSenha())){ // ve se alterou a senha
+            cliente.setSenha(encoder.encode(cliente.getSenha()));
+        }
+
         return clienteRepository.save(cliente);
     }
 

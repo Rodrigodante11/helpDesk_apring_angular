@@ -60,6 +60,11 @@ public class TecnicoServices {
         tecnico.setId(id);
         validaPorCpfEemail(tecnico);   // valida CPF e Email
         Tecnico oldTecnico = findById(id);  //verifica se existe na base de dados
+
+        if(!tecnico.getSenha().equals(oldTecnico.getSenha())){ // ve se alterou a senha
+            tecnico.setSenha(encoder.encode(tecnico.getSenha()));
+        }
+
         return tecnicoRepository.save(tecnico);
     }
 
