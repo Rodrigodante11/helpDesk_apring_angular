@@ -4,7 +4,7 @@ public enum Status {
 
     ABERTO(0, "ABERTO"),
     ANDAMENTO(1, "ANDAMENTO"),
-    ENCERRADO(0, "ENCERRADO");
+    ENCERRADO(2, "ENCERRADO");
 
     private Integer codigo;
     private String descricao;
