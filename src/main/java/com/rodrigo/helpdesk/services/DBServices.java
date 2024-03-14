@@ -35,7 +35,7 @@ public class DBServices {
         Set<Perfil> cliente =  new HashSet<Perfil>(Arrays.asList(Perfil.ADMIN, Perfil.CLIENTE));
 
 
-        Tecnico tec1= new Tecnico(null,"Valdir cesar","636.532.302-68", "valdir@email.com",
+        Tecnico tec1= new Tecnico(null,"Rodrigo Augusto de Oliveira","636.532.302-68", "rodrigo@gmail.com",
                 encoder.encode("123"), tecnico);
 
 
