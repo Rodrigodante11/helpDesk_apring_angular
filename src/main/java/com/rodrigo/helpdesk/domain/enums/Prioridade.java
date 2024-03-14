@@ -4,7 +4,7 @@ public enum Prioridade {
 
     BAIXA(0, "BAIXA"),
     MEDIA(1, "MEDIA"),
-    ALTA(0, "ALTA");
+    ALTA(2, "ALTA");
 
     private Integer codigo;
     private String descricao;
